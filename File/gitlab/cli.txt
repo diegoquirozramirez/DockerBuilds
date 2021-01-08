@@ -1,0 +1,6 @@
+sudo docker run --detach \
+  --hostname "domain or sub-domain" \
+  --publish 8080:80 --publish 2222:22 \
+  --name gitlab \
+  --restart always \
+  gitlab/gitlab-ce:latest

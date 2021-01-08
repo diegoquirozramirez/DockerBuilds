@@ -5,9 +5,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: jenkins_server
     ports:
       - 8085:8080
       - 50000:50000
     #volumes:
     #  - jenkins_home:/var/jenkins_home
-    network_mode: host
+    #network_mode: host
