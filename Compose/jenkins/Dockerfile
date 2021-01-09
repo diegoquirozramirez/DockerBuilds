@@ -22,3 +22,5 @@ USER jenkins
 
 ##docker exec -u root jenkins_server bash -c "chown -R jenkins:jenkins /var/jenkins_home/ansible/id_rsa"
 ##docker exec -u root jenkins_server bash -c "chmod 600 /var/jenkins_home/ansible/id_rsa"
+
+## URL SSH GENERATE https://www.hostinger.es/tutoriales/llaves-ssh

@@ -1,0 +1,18 @@
+CLI
+
+## Testing module ping
+ansible -m ping -i hosts test
+
+donde: 
+    -m: modulo 
+    -i: inventory
+    hosts: archivo donde esta descrito los IP/HOSTS
+    test: nombre o alias del un HOST/IP, esta dentro de archivo hosts
+
+## Testing playbook
+ansible-playbook -i hosts play.yml
+
+donde:
+    -i inventory
+    hosts: archivo donde esta descrito los IP/HOSTS
+    play.yml: arhivo donde esta configurado hosts, tasks, ansible_connection, etc
