@@ -6,11 +6,15 @@ USER root
 
 RUN  apt-get update -y
 
+ARG DEBIAN_FRONTEND=noninteractive
+
+RUN apt install python3 -y
+
 RUN apt install python3-pip -y
 
-RUN apt install python -y
+RUN ln -s /usr/bin/pip3 /usr/bin/pip
 
-RUN apt install python-pip -y
+RUN ln -sv -f /usr/bin/python3 /usr/bin/python
 
 RUN pip3 install -U ansible
 
