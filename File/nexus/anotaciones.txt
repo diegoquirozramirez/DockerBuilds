@@ -1,0 +1,8 @@
+## Primera autenticacion:
+    - username: admin
+    - password de admin en data-nexus/admin.password
+
+## PARA INTEGRACION CON PROYECTOS NODEJS
+    - Crear un archivo .npmrc en la carpeta root del proyecto y dentro escribir (ver achivo .npmrc),
+    - Para la creacion de un _auth el usuario y password deben ser los mismos que se logean o autentican en el panel
+    de Nexus (web)

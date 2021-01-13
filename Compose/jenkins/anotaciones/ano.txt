@@ -1,5 +1,7 @@
 CLI
 
+ANSIBLE
+
 ## Testing module ping
 ansible -m ping -i hosts test
 
@@ -16,3 +18,10 @@ donde:
     -i inventory
     hosts: archivo donde esta descrito los IP/HOSTS
     play.yml: arhivo donde esta configurado hosts, tasks, ansible_connection, etc
+
+
+CURL JENKINS API
+
+## Para ejecutar sin parametros JOB
+
+curl -X POST http://username:tokenf@ip:port/job/environmet-tr/build?delay=0sec

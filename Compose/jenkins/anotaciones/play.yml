@@ -1,3 +1,14 @@
 - hosts: devops-AX
   tasks:
-    - shell: echo "Hola mundo con jenkins DevOps" > /tmp/hola-ansible
+    - debug: 
+        var: MSG
+        
+    - debug:
+        msg: "Yo no me voy a ejecutar :c"
+      tags: no-exec
+    
+    - debug:
+        msg: "Yo si me voy a ejecutar :)"
+      tags: si-exec
+      
+#    - shell: echo "$MSG" > /tmp/hola-ansible
