@@ -6,3 +6,8 @@
     - Crear un archivo .npmrc en la carpeta root del proyecto y dentro escribir (ver achivo .npmrc),
     - Para la creacion de un _auth el usuario y password deben ser los mismos que se logean o autentican en el panel
     de Nexus (web)
+    - Para depender de un repository o grupo, colocar en le package.json 
+        "publishConfig": {
+            "registry": "URL_REPOSITORY"
+        }
+        URL_REPOSITORY : puede ser URL de un grupo de repository o de un repository hosted o repository proxy
