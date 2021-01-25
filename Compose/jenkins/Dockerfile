@@ -18,6 +18,10 @@ RUN ln -sv -f /usr/bin/python3 /usr/bin/python
 
 RUN pip3 install -U ansible
 
+RUN curl -sL https://deb.nodesource.com/setup_11.x  | bash -
+
+RUN apt -y install nodejs
+
 USER jenkins
 
 ##docker exec -u root jenkins_server bash -c "chown -R jenkins:jenkins /var/jenkins_home/ansible/id_rsa"
