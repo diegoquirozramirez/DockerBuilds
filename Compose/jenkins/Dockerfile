@@ -1,22 +1,40 @@
 FROM jenkins/jenkins
 COPY executors.groovy /usr/share/jenkins/ref/init.groovy.d/executors.groovy
 USER root
-
-#RUN curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py" && python get-pip.py
-
 RUN  apt-get update -y
 
-ARG DEBIAN_FRONTEND=noninteractive
+#For Ansible installer
 
-RUN apt install python3 -y
+#ARG DEBIAN_FRONTEND=noninteractive
+#RUN apt install python3 -y
+#RUN apt install python3-pip -y
+#RUN ln -s /usr/bin/pip3 /usr/bin/pip
+#RUN ln -sv -f  /usr/bin/python3 /usr/bin/python
+#RUN pip3 install -U ansible
 
-RUN apt install python3-pip -y
+#For the nodejs installer
 
-RUN ln -s /usr/bin/pip3 /usr/bin/pip
+RUN curl -sL https://deb.nodesource.com/setup_12.x  | bash -
+RUN apt -y install nodejs
+RUN apt-get update && apt-get install -y apt-transport-https \
+       ca-certificates curl gnupg2 \
+       software-properties-common
+RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
+RUN apt-key fingerprint 0EBFCD88
+RUN add-apt-repository \
+       "deb [arch=amd64] https://download.docker.com/linux/debian \
+       $(lsb_release -cs) stable"
+       
+RUN apt-get update && apt-get install -y docker-ce-cli
 
-RUN ln -sv -f /usr/bin/python3 /usr/bin/python
+#For Docker Compose Installer
 
-RUN pip3 install -U ansible
+RUN curl -L "https://github.com/docker/compose/releases/download/1.28.2/docker-compose-$(uname -s)-$(uname -m)" -o /us$
+RUN chmod +x /usr/local/bin/docker-compose
+
+#For add credentials execute CLI DOCKer to user Jenkins
+
+RUN chown jenkins:jenkins -R /var/run/
 
 USER jenkins
 
