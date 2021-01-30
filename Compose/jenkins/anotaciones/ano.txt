@@ -1,3 +1,10 @@
+##### OBSERVACIONES
+
+## SI OCURRE UN ERROR O FALLO ALGO VERIFICA EN EL LOG DEL CONTENEDOR:
+    - Si es por denegacion de acceso => solucion => chmod 777 -R (volumen_dir_jenkins)
+
+
+
 CLI
 
 ANSIBLE
@@ -25,3 +32,9 @@ CURL JENKINS API
 ## Para ejecutar sin parametros JOB
 
 curl -X POST http://username:tokenf@ip:port/job/environmet-tr/build?delay=0sec
+
+
+
+## ADICIONES
+
+#### Si deseas instalar un nuevo plugin manualmente ir a: /var/jenkins_home/plugins/pipeline-model-definition/
