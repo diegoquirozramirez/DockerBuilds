@@ -3,3 +3,27 @@ sysctl -w vm.max_map_count=262144
 sysctl -w fs.file-max=65536
 ulimit -n 65536
 ulimit -u 4096
+
+## INSTALL LINUX SONAR-SCANNER #########
+nano /etc/profile.d/sonar-scanner.sh
+
+--->
+#/bin/bash
+export PATH="$PATH:/opt/sonar-scanner/bin"
+<--
+
+reboot (Optional)
+source /etc/profile.d/sonar-scanner.sh
+
+## Comprobar PATH
+env | grep PATH
+
+## VERSION INSTALADA
+sonar-scanner -v
+
+#### IMPORANTE ####
+SI JENKINS Y SONAR ESTAN EN LA MISMA MAQUINA
+
+- DEBEN COMPARTIR LA MISMA RED
+- EN LA CONFI. JENKINS DE SONAR SERVER COLOCAR LA IP DEL CONTENEDOR + SU IP (ejemplo: 172.19.0.5:9000)
+
