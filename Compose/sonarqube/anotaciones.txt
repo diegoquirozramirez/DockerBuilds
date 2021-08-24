@@ -1,4 +1,4 @@
-########## ELasticsearch Embedded ###############
+########## ELasticsearch Embedded IMPORANTE ###############
 sysctl -w vm.max_map_count=262144
 sysctl -w fs.file-max=65536
 ulimit -n 65536
@@ -27,3 +27,5 @@ SI JENKINS Y SONAR ESTAN EN LA MISMA MAQUINA
 - DEBEN COMPARTIR LA MISMA RED
 - EN LA CONFI. JENKINS DE SONAR SERVER COLOCAR LA IP DEL CONTENEDOR + SU IP (ejemplo: 172.19.0.5:9000)
 
+### RUN SONAR SCANNER WITH DOCKER 
+docker run --rm --network=sonarqube_sonarnet -e SONAR_HOST_URL="http://<host>:<port>" -e SONAR_LOGIN="token" -v "/dir/project:/usr/src"  sonarsource/sonar-scanner-cli
