@@ -29,3 +29,7 @@ SI JENKINS Y SONAR ESTAN EN LA MISMA MAQUINA
 
 ### RUN SONAR SCANNER WITH DOCKER 
 docker run --rm --network=sonarqube_sonarnet -e SONAR_HOST_URL="http://<host>:<port>" -e SONAR_LOGIN="token" -v "/dir/project:/usr/src"  sonarsource/sonar-scanner-cli
+
+### Plugin Sonar Slack Notifier 
+- Descargar el .jar y colocar en ${SONARQUBE_HOME}/extensions/plugins, luego reiniciar el servidor sonarqube
+https://github.com/kogitant/sonar-slack-notifier-plugin
