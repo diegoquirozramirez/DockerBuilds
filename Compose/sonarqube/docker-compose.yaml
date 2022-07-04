@@ -2,7 +2,7 @@ version: "3"
 
 services:
   sonarqube_server:
-    image: sonarqube:8.2-community
+    image: sonarqube:lts-community
     restart: always
     depends_on:
       - db_sonarqube_server
@@ -15,10 +15,10 @@ services:
       SONAR_JDBC_USERNAME: sonar
       SONAR_JDBC_PASSWORD: sonar
     volumes:
-      - /home/diego/Documentos/volumenes/sonarqube_server/sonarqube_data:/opt/sonarqube/data
-      - /home/diego/Documentos/volumenes/sonarqube_server/sonarqube_extensions:/opt/sonarqube/extensions
-      - /home/diego/Documentos/volumenes/sonarqube_server/sonarqube_logs:/opt/sonarqube/logs
-      - /home/diego/Documentos/volumenes/sonarqube_server/sonarqube_temp:/opt/sonarqube/temp
+      - $HOME/Volumens/sonarqube_server/sonarqube_data:/opt/sonarqube/data
+      - $HOME/Volumens/sonarqube_server/sonarqube_extensions:/opt/sonarqube/extensions
+      - $HOME/Volumens/sonarqube_server/sonarqube_logs:/opt/sonarqube/logs
+      - $HOME/Volumens/sonarqube_server/sonarqube_temp:/opt/sonarqube/temp
   db_sonarqube_server:
     image: postgres
     networks:
@@ -28,18 +28,18 @@ services:
       POSTGRES_PASSWORD: sonar
       POSTGRES_DB: sonar
     volumes:
-      - /home/diego/Documentos/volumenes/postgres_sonarqube_server/postgresql:/var/lib/postgresql
+      - $HOME/Volumens/postgres_sonarqube_server/postgresql:/var/lib/postgresql
       # This needs explicit mapping due to https://github.com/docker-library/postgres/blob/4e48e3228a30763913ece952c611e5e9b95c8759/Dockerfile.template#L52
-      - /home/diego/Documentos/volumenes/postgres_sonarqube_server/postgresql_data:/var/lib/postgresql/data
+      - $HOME/Volumens/postgres_sonarqube_server/postgresql_data:/var/lib/postgresql/data
 
 networks:
   sonarnet:
     driver: bridge
 
-volumes:
-  sonarqube_data:
-  sonarqube_extensions:
-  sonarqube_logs:
-  sonarqube_temp:
-  postgresql:
-  postgresql_data:
+#volumes:
+#  sonarqube_data:
+#  sonarqube_extensions:
+#  sonarqube_logs:
+#  sonarqube_temp:
+#  postgresql:
+#  postgresql_data:

@@ -5,11 +5,11 @@ services:
     image: sonatype/nexus3
     container_name: nexus
     ports:
-      - 8081:8081
+      - 8082:8081
     volumes:
       - /usr/local/container_volume/nexus-data:/nexus-data sonatype/nexus3
     environment:
-      - INSTALL4J_ADD_VM_PARAMS="-Xms2g -Xmx2g -XX:MaxDirectMemorySize=3g  -Djava.util.prefs.userRoot=${NEXUS_DATA}/javaprefs"
+      #- INSTALL4J_ADD_VM_PARAMS="-Xms2g -Xmx2g -XX:MaxDirectMemorySize=3g  -Djava.util.prefs.userRoot=${NEXUS_DATA}/javaprefs"
       - NEXUS_CONTEXT=nexus
     networks:
       - nexus-net
